@@ -8,5 +8,5 @@
 - Added `IO#contains_comments?` by means of core extensions, as well as via the `YAML` module.
 
 ## 0.0.1
-- Some utility stuf for `Pathname`
+- Some utility stuff for `Pathname`
 - A script for playing with procedures and mapping
