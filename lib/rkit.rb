@@ -1,4 +1,4 @@
-# Rkit
+# Rkit is my personal toolkit for Ruby development
 module Rkit
 	VERSION = '0.0.1'
 
