@@ -1,27 +1,24 @@
 # RubyKit
-My personal collection of Ruby libraries and extensions used for enhancing Ruby development
+This is my personal collection of libraries and extensions for enhancing Ruby development.
 
-## Structure / Organization
-This repository is structured based on patterns of the [RubyGems guide](http://guides.rubygems.org/patterns/#loading-code).
+### Structure / Organization
+This repo is structured based on patterns and conventions found in the [RubyGems guide][1].
 
 - The `lib/` directory should be made available to Ruby's `$LOAD_PATH`.
-- The `lib/rkit/` directory contains all of the code I personally authored, and only code I have authored.
-- For convenience, Ruby files that have corresponding subdirectories in `lib/` will in turn load all of the Ruby files that are children of that subdirectory. Take the contents of `lib/core_ext.rb` as an example:
+- The `Rkit` library contains all of my original code, and is loaded by requiring the file `lib/rkit.rb`
+- For convenience, entire directories can be loaded by requiring the Ruby file of the same name.
 
-    ```ruby
-    Dir.glob('core_ext/*.rb').each { |f| load f }
-    ```
-    
-    In **`rkit.rb`**, the same functionality is provided via the method `Kernel#load_all`.
+#### Usage
+I use the `RUBYLIB` Environment Variable to provide system-wide access to the libraries in this repository. `RUBYLIB` functions exactly like the `PATH` variable; any contained paths are automatically appended to the global `$LOAD_PATH` in Ruby interpreters.
 
+## License
+Contents of this repository are divided into two types of licensing:
 
-## Usage
-I use the environment variable `RUBYLIB` to provide system-wide access to the libraries in this repository. `RUBYLIB` functions exactly like the `PATH` variable, and contained paths are appended to the Ruby global variable `$LOAD_PATH` automatically.
-
-## License / Copyright
-~~The [included license](lib/rkit/LICENSE) is only applicable to the contents of the `lib/rkit/` directory within this repository.~~
-
-I am currently evaluating the appropriate legal requirements for the content of this repository. Until further notice, the [included license](lib/rkit/LICENSE) shall be considered applicable to the contents of the `lib/rkit/` directory.
+- `Rkit` is freely provided via [the GPLv3 license][2], and consists of the contents of `lib/rkit/`.
+- All other source code may be considered unlicensed, unless otherwise stated in the file
 
 ---
-**DISCLAIMER:** Scripts in this repository may contain code taken from online sources, for which I claim neither ownership nor authorship. I will do my best to attribute credit to the original authors, and to supply and adhere to all appropriate licenses. I utilize these scripts and the GitHub service with the understanding that I am not violating any law in doing so. If any legal concern were to arise regarding my use of these scripts or the GitHub service, please contact me immediately, and I will enact any and all measures necessary to rectify the situation.
+**DISCLAIMER:** Files in this repository may contain code taken from online sources for which I claim neither ownership nor authorship. I will do my best to attribute credit where due, and to supply and adhere to any relevant licenses for such code. If detected, please report improper licensing or usage of any material within this repository by creating an issue.
+
+[1]: (http://guides.rubygems.org/patterns/#loading-code)
+[2]: lib/rkit/LICENSE.md
