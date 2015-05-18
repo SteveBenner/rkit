@@ -1,5 +1,5 @@
 module FileUtils
-	# Increments a given filename
+  # Increments a given filename
   def fname_incr(fname)
     !File.exists?(fname) ?
       fname :

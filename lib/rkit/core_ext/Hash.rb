@@ -55,7 +55,7 @@ class Hash
   #
   # todo: write tests
   def subset(keys)
-	  # todo: find the most efficient means of doing this
-	  self.select { |k, v| keys.include? k }
+    # todo: find the most efficient means of doing this
+    self.select { |k, v| keys.include? k }
   end
 end
