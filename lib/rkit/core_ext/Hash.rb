@@ -45,4 +45,17 @@ class Hash
     end
   end
   alias_method :vmap!, :map_values!
+
+  # todo: create methods :map_keys and :map_keys!
+
+  # Returns all key/value pairs of a Hash for which the key exists in given Array
+  #
+  # @param [Array] keys Keys to select from self, for which key/value pairs are returned
+  # @return [Hash] A Hash containing all key/value pairs whose key is in given Array
+  #
+  # todo: write tests
+  def subset(keys)
+	  # todo: find the most efficient means of doing this
+	  self.select { |k, v| keys.include? k }
+  end
 end

@@ -14,13 +14,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class Time
-	# Same as Time::at except the input is truncated to 10 digits, allowing
-	# extra long timestamps (such as those used by SQL) to be provided.
-	#
-	# @param [Integer, String] timestamp Unix timestamp of any length (seconds since epoch)
-	# @return [Time] New Time object based on given timestamp
-	#
-	def self.from_sql_timestamp(timestamp)
-		Time.at timestamp.to_s[0..9].to_i
-	end
+  # Same as Time::at except the input is truncated to 10 digits, allowing
+  # extra long timestamps (such as those used by SQL) to be provided.
+  #
+  # @param [Integer, String] timestamp Unix timestamp of any length (seconds since epoch)
+  # @return [Time] New Time object based on given timestamp
+  #
+  def self.from_sql_timestamp(timestamp)
+    Time.at timestamp.to_s[0..9].to_i
+  end
 end

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5 / 2015.05.18
+- Added `Time::from_sql_timestamp` which normalizes time values originating from SQL data
+- Consolidated some methods I had sitting around in old repo
+
 ## 0.0.3 / 2014.08.30
 - Added convenience methods `Hash#map_values` and in-place version `Hash#map_values!`.
 - Updated README and repository structure
