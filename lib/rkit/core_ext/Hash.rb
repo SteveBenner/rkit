@@ -85,10 +85,10 @@ class Hash
   def shallow_traverse
 	  self.dup.reduce({}) do |h, (k, v)|
 		  h[k] = case v.class
-			         when Hash then v.shallow_traverse
-			         when Array then v.first.shallow_traverse
-			         else v
-		         end
+        when Hash then v.shallow_traverse
+        when Array then v.first.shallow_traverse
+        else v
+      end
 		  h
 	  end
   end
