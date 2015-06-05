@@ -65,7 +65,7 @@ class Hash
   # @param function [Symbol] Function to pass each value to for replacement
   #
   def each_value!(function)
-	  self.each_value {|key, val| self[key] = eval "#{function.to_s}(#{val})"}
+    self.each_value {|key, val| self[key] = eval "#{function.to_s}(#{val})"}
   end
 
   # Removes all nil values from Hash recursively
@@ -73,55 +73,55 @@ class Hash
   # @return [Hash] Self, with all keys with a value of nil removed
   #
   def recursive_compact!
-	  inject({}) do |new_hash, (k, v)|
-		  unless v.nil?
-			  new_hash[k] = v.class == Hash ? v.recursive_compact! : v
-		  end
-		  new_hash
-	  end
+    inject({}) do |new_hash, (k, v)|
+      unless v.nil?
+        new_hash[k] = v.class == Hash ? v.recursive_compact! : v
+      end
+      new_hash
+    end
   end
 
   # Traverses a nested structure, returning only the first element of collections
   def shallow_traverse
-	  self.dup.reduce({}) do |h, (k, v)|
-		  h[k] = case v.class
+    self.dup.reduce({}) do |h, (k, v)|
+      h[k] = case v.class
         when Hash then v.shallow_traverse
         when Array then v.first.shallow_traverse
         else v
       end
-		  h
-	  end
+      h
+    end
   end
 
   # Recursively merges two hashes, without merging nils
   def recursive_merge(other_hash={})
-	  merge(other_hash) do |key, oldval, newval|
-		  if oldval.is_a? Hash
-			  oldval.recursive_merge(newval)
-		  else
-			  newval.nil? ? oldval : newval
-		  end
-	  end
+    merge(other_hash) do |key, oldval, newval|
+      if oldval.is_a? Hash
+        oldval.recursive_merge(newval)
+      else
+        newval.nil? ? oldval : newval
+      end
+    end
   end
 
   # Recursively merges two hashes in place (destructive), without merging nils
   def recursive_merge!(other_hash={})
-	  merge!(other_hash) do |key, oldval, newval|
-		  if oldval.is_a? Hash
-			  oldval.recursive_merge(newval)
-		  else
-			  newval.nil? ? oldval : newval
-		  end
-	  end
+    merge!(other_hash) do |key, oldval, newval|
+      if oldval.is_a? Hash
+        oldval.recursive_merge(newval)
+      else
+        newval.nil? ? oldval : newval
+      end
+    end
   end
 
   # not if working...
   def reverse_recursive_merge(other_hash={})
-	  other_hash.recursive_merge(self)
+    other_hash.recursive_merge(self)
   end
 
   # not if working...
   def reverse_recursive_merge!(other_hash={})
-	  replace(reverse_recursive_merge(other_hash))
+    replace(reverse_recursive_merge(other_hash))
   end
 end
