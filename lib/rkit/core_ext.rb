@@ -1,1 +1,1 @@
-Dir.glob('core_ext/*.rb').each { |f| load f }
+Dir.glob("#{File.dirname __FILE__}/core_ext/*.rb").each { |f| load f }

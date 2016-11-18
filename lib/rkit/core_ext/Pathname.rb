@@ -26,6 +26,13 @@ class Pathname
     self.basename.to_s[0] == '.' ? true : false
   end
 
+  # todo: document
+  def flatten!(file_types)
+    # todo
+    # move all files of given types to top-level dir
+    # delete any and all empty directories
+  end
+
   # todo: create in-place method as attempted below
   # def sub_ext!(ext)
   #   self = self.sub_ext ext

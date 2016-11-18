@@ -1,5 +1,3 @@
-# Rkit is my personal toolkit for Ruby development
-#
 # Copyright (C) 2015 Stephen C. Benner
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,15 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-module Rkit
-  VERSION = '0.0.3'
+# This is a collection of tools for testing algorithms and large data sets
 
-  module ::Kernel
-    # Loads all Ruby files that are direct children of given directory
-    #
-    # @param [String, Pathname] dir Directory name
-    def load_all(dir)
-      Dir.glob(File.join dir, '*.rb').each { |file| load file }
-    end
+class Test
+  # todo: add test data from codility practice exercise
+
+  # Edge cases
+  EDGE_CASES = {
+    array: [
+           ]
+  }
+
+  class << self
   end
 end
